@@ -5,6 +5,15 @@ from lib.matrix_utility import print_matrix
 
 
 def norm(mat):
+    """
+    Calculates the matrix norm based on the maximum absolute row sum (infinity norm).
+
+    Parameters:
+    mat (list of lists or np.ndarray): The input square matrix.
+
+    Returns:
+    float: The maximum row sum norm of the matrix.
+    """
     size = len(mat)
     max_row = 0
     for row in range(size):
@@ -17,6 +26,21 @@ def norm(mat):
 
 
 def condition_number(A):
+    """
+    Computes the condition number of a square matrix A using the infinity norm.
+
+    The condition number is defined as: ||A|| * ||A^(-1)||
+    where ||·|| is the matrix norm (maximum absolute row sum in this implementation).
+
+    Parameters:
+    A (np.ndarray): A square matrix.
+
+    Returns:
+    float: The condition number of the matrix A.
+
+    Side Effects:
+    - Prints intermediate matrices and norms for visualization.
+    """
     # Step 1: Calculate the max norm (infinity norm) of A
     norm_A = norm(A)
 
@@ -49,9 +73,3 @@ if __name__ == '__main__':
     cond = condition_number(A)
 
     print(bcolors.OKGREEN, "\n condition number: ", cond, bcolors.ENDC)
-
-
-
-
-
-

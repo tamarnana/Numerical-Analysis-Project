@@ -5,6 +5,21 @@ x = Symbol('x')
 
 
 def natural_cubic_spline(f, x0):
+    """
+    Computes and prints the natural cubic spline interpolation for a given set of points,
+    and evaluates the spline at a given x0 if it's within the interpolation range.
+
+    Parameters:
+    f (list of tuples): A list of (x, y) points sorted in increasing order of x.
+    x0 (float): A point at which to evaluate the spline.
+
+    Behavior:
+    - Calculates the step sizes (h), g, m, and d coefficients for the tridiagonal system.
+    - Builds and prints the tridiagonal matrix and right-hand side vector.
+    - Solves the system using the Jacobi method from `jacobi_utilities` to obtain second derivatives (M).
+    - Constructs and prints each cubic spline segment s_i(x).
+    - Locates the segment where x0 lies and evaluates the spline at that point (if applicable).
+    """
     h = list()
     for i in range(len(f) - 1):
         h.append(f[i + 1][0] - f[i][0])
@@ -95,4 +110,3 @@ if __name__ == '__main__':
     print("func: " + str(f))
     print("x0 = " + str(x0) + "\n")
     natural_cubic_spline(f, x0)
-
