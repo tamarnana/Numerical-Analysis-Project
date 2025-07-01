@@ -1,8 +1,8 @@
 import numpy as np
 from numpy.linalg import norm
 
-from colors import bcolors
-from matrix_utility import is_diagonally_dominant, DominantDiagonalFix, is_square_matrix
+from lib.colors import bcolors
+from lib.matrix_utility import is_diagonally_dominant, DominantDiagonalFix, is_square_matrix
 
 """
 Performs Jacobi iterations to solve the line system of equations, Ax=b, 

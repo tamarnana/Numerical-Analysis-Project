@@ -1,4 +1,4 @@
-from colors import bcolors
+from lib.colors import bcolors
 
 
 def lagrange_interpolation(x_data, y_data, x):

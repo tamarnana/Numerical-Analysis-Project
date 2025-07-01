@@ -1,4 +1,4 @@
-from colors import bcolors
+from lib.colors import bcolors
 
 
 def linearInterpolation(table_points, point):

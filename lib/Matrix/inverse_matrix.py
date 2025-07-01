@@ -1,5 +1,5 @@
-from colors import bcolors
-from matrix_utility import row_addition_elementary_matrix, scalar_multiplication_elementary_matrix
+from lib.colors import bcolors
+from lib.matrix_utility import row_addition_elementary_matrix, scalar_multiplication_elementary_matrix
 import numpy as np
 
 """

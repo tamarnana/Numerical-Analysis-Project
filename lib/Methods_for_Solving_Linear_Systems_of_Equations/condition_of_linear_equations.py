@@ -1,7 +1,7 @@
 import numpy as np
-from Matrix.inverse_matrix import inverse
-from colors import bcolors
-from matrix_utility import print_matrix
+from lib.Matrix.inverse_matrix import inverse
+from lib.colors import bcolors
+from lib.matrix_utility import print_matrix
 
 
 def norm(mat):

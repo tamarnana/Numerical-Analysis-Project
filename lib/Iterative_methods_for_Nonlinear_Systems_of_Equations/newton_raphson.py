@@ -1,4 +1,4 @@
-from colors import bcolors
+from lib.colors import bcolors
 
 
 def newton_raphson(f, df, p0, TOL, N=50):

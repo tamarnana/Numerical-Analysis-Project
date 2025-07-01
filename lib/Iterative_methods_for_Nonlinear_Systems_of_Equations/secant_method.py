@@ -1,4 +1,4 @@
-from colors import bcolors
+from lib.colors import bcolors
 
 
 def secant_method(f, x0, x1, TOL, N=50):

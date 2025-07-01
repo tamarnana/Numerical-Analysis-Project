@@ -1,6 +1,6 @@
 import numpy as np
-from colors import bcolors
-from matrix_utility import swap_row
+from lib.colors import bcolors
+from lib.matrix_utility import swap_row
 
 
 def gaussianElimination(mat):

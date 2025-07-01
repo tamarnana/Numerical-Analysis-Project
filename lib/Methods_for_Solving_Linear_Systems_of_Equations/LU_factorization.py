@@ -1,7 +1,7 @@
 import numpy as np
 
-from colors import bcolors
-from matrix_utility import swap_rows_elementary_matrix, row_addition_elementary_matrix
+from lib.colors import bcolors
+from lib.matrix_utility import swap_rows_elementary_matrix, row_addition_elementary_matrix
 
 
 def lu(A):

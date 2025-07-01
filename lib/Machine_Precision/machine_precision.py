@@ -1,4 +1,4 @@
-from colors import bcolors
+from lib.colors import bcolors
 
 
 def machine_epsilon():
@@ -12,7 +12,7 @@ def machine_epsilon():
 
 if __name__ == '__main__':
     m_eps = machine_epsilon()
-    print(bcolors.OKBLUE, "Machine Precision  : ", m_eps, bcolors.ENDC)
+    print(bcolors.OKBLUE, "Machine_Precision  : ", m_eps, bcolors.ENDC)
 
     expression = abs(3.0 * (4.0 / 3.0 - 1) - 1)
     print("\nResult of abs(3.0 * (4.0 / 3.0 - 1) - 1) :")

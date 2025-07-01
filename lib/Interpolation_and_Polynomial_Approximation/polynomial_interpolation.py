@@ -1,5 +1,5 @@
-from colors import bcolors
-from matrix_utility import *
+from lib.colors import bcolors
+from lib.matrix_utility import *
 
 
 def GaussJordanElimination(matrix, vector):
