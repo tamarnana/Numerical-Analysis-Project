@@ -1,4 +1,25 @@
 class bcolors:
+    """
+    ANSI escape sequences for colored terminal text and styles.
+
+    Attributes:
+        HEADER (str): Purple color.
+        OKBLUE (str): Blue color.
+        OKGREEN (str): Green color.
+        YELLOW (str): Yellow color.
+        WARNING (str): Yellow color (alias).
+        FAIL (str): Red color.
+        ENDC (str): Reset to default terminal color.
+        BOLD (str): Bold text style.
+        UNDERLINE (str): Underline text style.
+        GREYBG (str): Grey background.
+        REDBG (str): Red background.
+        GREENBG (str): Green background.
+        YELLOWBG (str): Yellow background.
+        BLUEBG (str): Blue background.
+        PINKBG (str): Pink background.
+        CYANBG (str): Cyan background.
+    """
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'

@@ -2,6 +2,22 @@ from lib.colors import bcolors
 
 
 def neville(x_data, y_data, x_interpolate):
+    """
+    Performs polynomial interpolation using Neville's algorithm.
+
+    Parameters:
+    x_data (list of float): The x-values of the known data points.
+    y_data (list of float): The y-values of the known data points.
+    x_interpolate (float): The x-value at which to evaluate the interpolated value.
+
+    Returns:
+    float: The interpolated y-value at x_interpolate.
+
+    Notes:
+    - Neville's method builds a triangular tableau to compute the result.
+    - Assumes that x_data contains distinct values and matches y_data in length.
+    - The algorithm is numerically stable and well-suited for small to moderate data sets.
+    """
     n = len(x_data)
 
     # Initialize the tableau
@@ -16,6 +32,7 @@ def neville(x_data, y_data, x_interpolate):
                              (x_interpolate - x_data[i]) * tableau[i + 1][j - 1]) / (x_data[i] - x_data[i + j])
 
     return tableau[0][n - 1]
+
 
 if __name__ == '__main__':
     # Example usage:

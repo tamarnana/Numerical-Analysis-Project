@@ -1,8 +1,12 @@
 def checkIfSquare(mat):
     """
-    this function checks if the matrixis square.
-    :param mat: matrix - type list
-    :return: boolean
+    Checks if the given matrix is square.
+
+    Parameters:
+    mat (list): A matrix represented as a list of lists.
+
+    Returns:
+    bool: True if the matrix is square, False otherwise.
     """
     rows = len(mat)
     for i in mat:
@@ -13,35 +17,36 @@ def checkIfSquare(mat):
 
 def isDDM(m, n):
     """
-     check the if given matrix is Diagonally Dominant matrix or not.
-    :param m: the matrix, type list.
-    :param n: size of the matrix (nxn)
-    :return: boolean
+    Checks whether the given matrix is diagonally dominant.
+
+    Parameters:
+    m (list): The matrix to check.
+    n (int): The number of rows (and columns) in the matrix.
+
+    Returns:
+    bool: True if the matrix is diagonally dominant, False otherwise.
     """
-    # for each row
     for i in range(0, n):
-
-        # for each column, finding sum of each row.
-        sum1 = 0
+        row_sum = 0
         for j in range(0, n):
-            sum1 = sum1 + abs(m[i][j])
-
-        # removing the diagonal element.
-        sum1 = sum1 - abs(m[i][i])
-
-        # checking if diagonal element is less than sum of non-diagonal element.
-        if (abs(m[i][i]) < sum1):
+            row_sum += abs(m[i][j])
+        row_sum -= abs(m[i][i])
+        if abs(m[i][i]) < row_sum:
             return False
     return True
 
 
 def rowSum(row, n, x):
     """
-    caculates the rowws sum
-    :param row: a single row from the matrix
-    :param n: the row's size
-    :param x: the x vector with results
-    :return: the sum
+    Calculates the dot product of a matrix row and a vector.
+
+    Parameters:
+    row (list): A row from the matrix.
+    n (int): The number of elements in the row.
+    x (list): A vector of variables.
+
+    Returns:
+    float: The resulting sum.
     """
     sum1 = 0
     for i in range(n):
@@ -51,11 +56,16 @@ def rowSum(row, n, x):
 
 def checkResult(result, last_result, n, epsilon):
     """
-    checking if the result is accurate enough
-    :param result: the most recent result
-    :param last_result: the previous result
-    :param n: the size of the result vector
-    :return: boolean
+    Checks whether the difference between two result vectors is within a given tolerance.
+
+    Parameters:
+    result (list): The current result vector.
+    last_result (list): The previous result vector.
+    n (int): The number of elements in the vectors.
+    epsilon (float): The acceptable difference threshold.
+
+    Returns:
+    bool: True if the result has converged, False otherwise.
     """
     for i in range(n):
         if abs(result[i] - last_result[i]) > epsilon:
@@ -63,46 +73,41 @@ def checkResult(result, last_result, n, epsilon):
     return True
 
 
-def Jacobi(mat, b, epsilon =0.000001):  # mat needs to be a list, example: l1 = [[2,3],[4,5]]
+def Jacobi(mat, b, epsilon=0.000001):
     """
-    caculating matrix to find vareables vector accourding to yaakobi's algorithem
-    :param mat: the matrix
-    :param b: the result vector
-    :return: the variables vector
+    Solves a system of linear equations using the Jacobi iterative method.
+
+    Parameters:
+    mat (list): The coefficient matrix (must be square).
+    b (list): The right-hand side result vector.
+    epsilon (float): The convergence threshold (default is 1e-6).
+
+    Returns:
+    list or str: The solution vector if successful, or an error message if input is invalid.
     """
-    # input check
     n = len(mat)
     if not checkIfSquare(mat):
         return "matrix is not square"
     if len(b) != n:
         return "b is not in the right size"
 
-    # check if Diagonally Dominant matrix
     if not isDDM(mat, n):
         print("matrix is not Diagonally Dominant")
 
-
-    # taking a guess: all zeros
-    last_result = list()
-    for i in range(n):
-        last_result.append(0)
-
+    last_result = [0 for _ in range(n)]
     result = last_result.copy()
 
     print("all results:\nx\t\ty\t  z")
-    count =0
+    count = 0
     while True:
-        for i in range(n):  # for each variable
+        for i in range(n):
             result[i] = b[i] - (rowSum(mat[i], n, last_result) - mat[i][i] * last_result[i])
             result[i] /= mat[i][i]
 
+        print("i = " + str(count) + ": " + str(result))
+        count += 1
 
-        print("i = "+str(count)+": "+str(result))
-        count+=1
         if checkResult(result, last_result, n, epsilon):
             return result
+
         last_result = result.copy()
-
-
-
-

@@ -1,26 +1,36 @@
-
 def sor(m, w=1.25, x0=None, eps=1e-5, max_iteration=100):
     """
+    Solves a system of linear equations using the Successive Over-Relaxation (SOR) method.
+
     Parameters
     ----------
-    m  : list of list of floats : coefficient matrix
-    w  : float : weight
-    x0 : list of floats : initial guess
-    eps: float : error tolerance
-    max_iteration: int
+    m : list of list of floats
+        Augmented matrix of coefficients and constants (size n x n+1).
+    w : float, optional
+        Relaxation factor (weight), default is 1.25.
+    x0 : list of floats, optional
+        Initial guess vector. If None, initialized to zero vector.
+    eps : float, optional
+        Error tolerance for convergence, default is 1e-5.
+    max_iteration : int, optional
+        Maximum number of iterations, default is 100.
 
     Returns
     -------
     list of floats
-        solution to the system of linear equation
+        Approximate solution vector of the system.
 
     Raises
     ------
     ValueError
-        Solution does not converge
+        If the solution does not converge within max_iteration iterations.
+
+    Notes
+    -----
+    Prints the intermediate iterative results at each iteration.
     """
     n = len(m)
-    x0 = [0] * n if x0 == None else x0
+    x0 = [0] * n if x0 is None else x0
     x1 = x0[:]
 
     for __ in range(max_iteration):

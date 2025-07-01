@@ -2,14 +2,25 @@ from lib.colors import bcolors
 from lib.matrix_utility import row_addition_elementary_matrix, scalar_multiplication_elementary_matrix
 import numpy as np
 
-"""
-Function that find the inverse of non-singular matrix
-The function performs elementary row operations to transform it into the identity matrix. 
-The resulting identity matrix will be the inverse of the input matrix if it is non-singular.
- If the input matrix is singular (i.e., its diagonal elements become zero during row operations), it raises an error.
-"""
 
 def inverse(matrix):
+    """
+    Finds the inverse of a non-singular square matrix using elementary row operations.
+
+    The function applies a series of elementary row operations to transform the input
+    matrix into the identity matrix. Simultaneously, it applies the same operations
+    to the identity matrix to construct the inverse.
+
+    Parameters:
+    matrix (np.ndarray): A square (n x n) NumPy array representing the matrix to invert.
+
+    Returns:
+    np.ndarray: The inverse of the input matrix.
+
+    Raises:
+    ValueError: If the matrix is not square or is singular (i.e., has a zero on the diagonal
+                during the elimination process).
+    """
     print(bcolors.OKBLUE, f"=================== Finding the inverse of a non-singular matrix using elementary row operations ===================\n {matrix}\n", bcolors.ENDC)
     if matrix.shape[0] != matrix.shape[1]:
         raise ValueError("Input matrix must be square.")
@@ -29,7 +40,7 @@ def inverse(matrix):
             print(f"elementary matrix to make the diagonal element 1 :\n {elementary_matrix} \n")
             matrix = np.dot(elementary_matrix, matrix)
             print(f"The matrix after elementary operation :\n {matrix}")
-            print(bcolors.OKGREEN, "------------------------------------------------------------------------------------------------------------------",  bcolors.ENDC)
+            print(bcolors.OKGREEN, "------------------------------------------------------------------------------------------------------------------", bcolors.ENDC)
             identity = np.dot(elementary_matrix, identity)
 
         # Zero out the elements above and below the diagonal
@@ -40,8 +51,7 @@ def inverse(matrix):
                 print(f"elementary matrix for R{j+1} = R{j+1} + ({scalar}R{i+1}):\n {elementary_matrix} \n")
                 matrix = np.dot(elementary_matrix, matrix)
                 print(f"The matrix after elementary operation :\n {matrix}")
-                print(bcolors.OKGREEN, "------------------------------------------------------------------------------------------------------------------",
-                      bcolors.ENDC)
+                print(bcolors.OKGREEN, "------------------------------------------------------------------------------------------------------------------", bcolors.ENDC)
                 identity = np.dot(elementary_matrix, identity)
 
     return identity
@@ -60,6 +70,3 @@ if __name__ == '__main__':
 
     except ValueError as e:
         print(str(e))
-
-
-
