@@ -11,9 +11,9 @@ def gaussianElimination(mat):
     if singular_flag != -1:
 
         if mat[singular_flag][N]:
-            return "Singular Matrix (Inconsistent System)"
+            return "Singular matrix (Inconsistent System)"
         else:
-            return "Singular Matrix (May have infinitely many solutions)"
+            return "Singular matrix (May have infinitely many solutions)"
 
     # if matrix is non-singular: get solution to system using backward substitution
     return backward_substitution(mat)
@@ -36,7 +36,7 @@ def forward_substitution(mat):
         # if a principal diagonal element is zero,it denotes that matrix is singular,
         # and will lead to a division-by-zero later.
         if not mat[k][pivot_row]:
-            return k  # Matrix is singular
+            return k  # matrix is singular
 
         # Swap the current row with the pivot row
         if pivot_row != k:

@@ -31,7 +31,7 @@ def jacobi_iterative(A, b, X0, TOL=1e-16, N=200):
     k = 1
 
     if is_diagonally_dominant(A):
-        print('Matrix is diagonally dominant - preforming jacobi algorithm\n')
+        print('matrix is diagonally dominant - preforming jacobi algorithm\n')
 
     print( "Iteration" + "\t\t\t".join([" {:>12}".format(var) for var in ["x{}".format(i) for i in range(1, len(A) + 1)]]))
     print("-----------------------------------------------------------------------------------------------")

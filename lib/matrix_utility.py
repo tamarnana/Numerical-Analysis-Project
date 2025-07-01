@@ -61,7 +61,7 @@ def swap_rows_elementary_matrix(n, row1, row2):
 
 def matrix_multiply(A, B):
     if len(A[0]) != len(B):
-        raise ValueError("Matrix dimensions are incompatible for multiplication.")
+        raise ValueError("matrix dimensions are incompatible for multiplication.")
     result = [[sum(A[i][k] * B[k][j] for k in range(len(B)))
                for j in range(len(B[0]))] for i in range(len(A))]
     return np.array(result)
@@ -106,7 +106,7 @@ def partial_pivoting(A, i, N):
             v_max = A[j][i]
             pivot_row = j
     if A[i][pivot_row] == 0:
-        return "Singular Matrix"
+        return "Singular matrix"
     if pivot_row != i:
         e_matrix = swap_rows_elementary_matrix(N, i, pivot_row)
         print(f"elementary matrix for swap between row {i} to row {pivot_row} :\n {e_matrix} \n")
@@ -143,7 +143,7 @@ def Cond(matrix, invert):
 
 def InverseMatrix(matrix, vector):
     if Determinant(matrix, 1) == 0:
-        print("Error, Singular Matrix\n")
+        print("Error, Singular matrix\n")
         return
     result = MakeIMatrix(len(matrix), len(matrix))
     for i in range(len(matrix[0])):

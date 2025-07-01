@@ -13,7 +13,7 @@ def checkIfSquare(mat):
 
 def isDDM(m, n):
     """
-     check the if given matrix is Diagonally Dominant Matrix or not.
+     check the if given matrix is Diagonally Dominant matrix or not.
     :param m: the matrix, type list.
     :param n: size of the matrix (nxn)
     :return: boolean
@@ -77,7 +77,7 @@ def Jacobi(mat, b, epsilon =0.000001):  # mat needs to be a list, example: l1 = 
     if len(b) != n:
         return "b is not in the right size"
 
-    # check if Diagonally Dominant Matrix
+    # check if Diagonally Dominant matrix
     if not isDDM(mat, n):
         print("matrix is not Diagonally Dominant")
 

@@ -16,7 +16,7 @@ def max_steps(a, b, err):
     return s
 
 """
-Performs Iterative_methods_for_Nonlinear_Systems_of_Equations to determine the roots of the given function f
+Performs Iterative_methods_for_nonlinear_systems_of_equations to determine the roots of the given function f
 Receives 4 parameters:
     1. f - continuous function on the interval [a, b], where f (a) and f (b) have opposite signs.
     2. a - start value.

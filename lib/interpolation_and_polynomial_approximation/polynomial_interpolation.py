@@ -5,7 +5,7 @@ from lib.matrix_utility import *
 def GaussJordanElimination(matrix, vector):
     """
     Function for solving a linear equation using gauss's elimination method
-    :param matrix: Matrix nxn
+    :param matrix: matrix nxn
     :param vector: Vector n
     :return: Solve Ax=b -> x=A(-1)b
     """
@@ -20,7 +20,7 @@ def GaussJordanElimination(matrix, vector):
 
 def UMatrix(matrix,vector):
     """
-    :param matrix: Matrix nxn
+    :param matrix: matrix nxn
     :return:Disassembly into a  U matrix
     """
     # result matrix initialized as singularity matrix
@@ -41,7 +41,7 @@ def UMatrix(matrix,vector):
 
 def LMatrix(matrix, vector):
     """
-       :param matrix: Matrix nxn
+       :param matrix: matrix nxn
        :return:Disassembly into a  L matrix
        """
     # Initialize the result matrix
@@ -64,7 +64,7 @@ def LMatrix(matrix, vector):
 def SolveLU(matrix, vector):
     """
     Function for deconstructing a linear equation by ungrouping LU
-    :param matrix: Matrix nxn
+    :param matrix: matrix nxn
     :param vector: Vector n
     :return: Solve Ax=b -> x=U(-1)L(-1)b
     """
@@ -79,17 +79,17 @@ def solveMatrix(matrixA,vectorb):
 
     if detA != 0:
         print("CondA = ", Cond(matrixA, InverseMatrix(matrixA, vectorb)), bcolors.ENDC)
-        print(bcolors.OKBLUE, "\nnon-Singular Matrix - Perform GaussJordanElimination",bcolors.ENDC)
+        print(bcolors.OKBLUE, "\nnon-Singular matrix - Perform GaussJordanElimination",bcolors.ENDC)
         result = GaussJordanElimination(matrixA, vectorb)
         print(np.array(result))
         return result
     else:
-        print("Singular Matrix - Perform LU Decomposition\n")
-        print("Matrix U: \n")
+        print("Singular matrix - Perform LU Decomposition\n")
+        print("matrix U: \n")
         print(np.array(UMatrix(matrixA, vectorb)))
-        print("\nMatrix L: \n")
+        print("\nmatrix L: \n")
         print(np.array(LMatrix(matrixA, vectorb)))
-        print("\nMatrix A=LU: \n")
+        print("\nmatrix A=LU: \n")
         result = MultiplyMatrix(LMatrix(matrixA, vectorb), UMatrix(matrixA, vectorb))
         print(np.array(result))
         return result

@@ -1,5 +1,5 @@
 import numpy as np
-from lib.Matrix.inverse_matrix import inverse
+from lib.matrix.inverse_matrix import inverse
 from lib.colors import bcolors
 from lib.matrix_utility import print_matrix
 
