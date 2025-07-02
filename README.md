@@ -1,3 +1,6 @@
+# Numerical Analysis Project 
+
+
 This repository is part of the academic course **Numerical Analysis** in the B.Sc. program at **Shamoon College of Engineering (SCE)**.
 
 This project focuses on the analysis and optimization of software development performance using statistical models.
