@@ -1,9 +1,12 @@
 This repository is part of the academic course **Numerical Analysis** in the B.Sc. program at **Shamoon College of Engineering (SCE)**.
 
-The repo implements numerical methods taught in the course.
+This project focuses on the analysis and optimization of software development performance using statistical models.
+It demonstrates how numerical methods can be applied to build and evaluate a defect‑prediction model for software systems via mathematical equations. 
+The system accepts input data and generates graphical visualizations of the analysis results.
+
 ## Implemented Methods
 
-### 1. Solving Linear Systems of Equations
+#### 1. Solving Linear Systems of Equations
 
 * gauss_elimination
 * LU Factorization
@@ -11,13 +14,13 @@ The repo implements numerical methods taught in the course.
 * Jacobi
 * Successive Over-Relaxation (SOR)
 
-### 2. Root Finding (Iterative Methods for Nonlinear Equations)
+#### 2. Root Finding (Iterative Methods for Nonlinear Equations)
 
-* Bisection Method**
+* Bisection Method
 * Newton–Raphson Method
 * Secant Method
 
-### 3. Interpolation and Polynomial Approximation
+#### 3. Interpolation and Polynomial Approximation
 
 * Linear Interpolation
 * Polynomial Interpolation
@@ -25,7 +28,7 @@ The repo implements numerical methods taught in the course.
 * Neville’s Method
 * Cubic Spline
 
-### 4. Numerical Integration
+#### 4. Numerical Integration
 
 * Romberg Integration
 * Simpson’s Rule
@@ -33,7 +36,7 @@ The repo implements numerical methods taught in the course.
 * Gaussian Quadrature
 
 
-## Prerequisites
+### Prerequisites
 
 * Python ≥ 3.6
 * SciPy
@@ -42,30 +45,19 @@ The repo implements numerical methods taught in the course.
 * pandas
 * matplotlib
 
-Install dependencies:
+### Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Cloning the Repository
+### Cloning the Repository
 
 ```bash
-git clone https://github.com/<username>/<repository>.git
-cd <repository>
+git clone https://github.com/tamarnana/Numerical-Analysis-Project.git
 ```
 
-Replace `<username>` and `<repository>` with your GitHub account and repository name.
-
-## Usage
-
-* **Run examples:**
-
-  ```bash
-  python examples/main.py
-  ```
-
-## Authors
+### Authors
 
 * Tamar Nahum
 * Shira Asaraf
